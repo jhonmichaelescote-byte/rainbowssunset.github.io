@@ -72,51 +72,55 @@ menuToggle.addEventListener("click", () => {
 });
 
 /* ------------------------------
-    MODALS (Terms & Privacy)
+    MODALS (Terms & Privacy) — with animation
 ------------------------------ */
 
-// Links in Footer
 const termsLink = document.getElementById("termsLink");
 const privacyLink = document.getElementById("privacyLink");
 
-// Modal Boxes
 const termsModal = document.getElementById("termsModal");
 const privacyModal = document.getElementById("privacyModal");
 
-// Close Buttons
 const closeTerms = document.getElementById("closeTerms");
 const closePrivacy = document.getElementById("closePrivacy");
 
-/* ---- OPEN MODALS ---- */
-termsLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  termsModal.classList.add("show-modal");
+function closeModal(modal) {
+  const content = modal.querySelector(".modal-content");
+  content.style.transform = "translateY(40px)";
+  content.style.opacity = "0";
+
+  // Wait for animation to finish before hiding
+  setTimeout(() => {
+    modal.style.display = "none";
+  }, 350);
+}
+
+function openModal(modal) {
+  modal.style.display = "flex";
+  const content = modal.querySelector(".modal-content");
+  content.style.transform = "translateY(40px)";
+  content.style.opacity = "0";
+  requestAnimationFrame(() => {
+    content.style.transform = "translateY(0)";
+    content.style.opacity = "1";
+  });
+}
+
+// OPEN
+termsLink.addEventListener("click", (e) => { e.preventDefault(); openModal(termsModal); });
+privacyLink.addEventListener("click", (e) => { e.preventDefault(); openModal(privacyModal); });
+
+// CLOSE
+closeTerms.addEventListener("click", () => closeModal(termsModal));
+closePrivacy.addEventListener("click", () => closeModal(privacyModal));
+
+window.addEventListener("click", (e) => {
+  if (e.target === termsModal) closeModal(termsModal);
+  if (e.target === privacyModal) closeModal(privacyModal);
 });
 
-privacyLink.addEventListener("click", (e) => {
-  e.preventDefault();
-  privacyModal.classList.add("show-modal");
-});
-
-/* ---- CLOSE MODALS ---- */
-closeTerms.addEventListener("click", () => {
-  termsModal.classList.remove("show-modal");
-});
-
-closePrivacy.addEventListener("click", () => {
-  privacyModal.classList.remove("show-modal");
-});
-
-/* ---- CLOSE WHEN CLICKING OUTSIDE ---- */
-window.addEventListener("click", (event) => {
-  if (event.target === termsModal) {
-    termsModal.classList.remove("show-modal");
-  }
-  if (event.target === privacyModal) {
-    privacyModal.classList.remove("show-modal");
-  }
-});
 
 
 })();
+
 
