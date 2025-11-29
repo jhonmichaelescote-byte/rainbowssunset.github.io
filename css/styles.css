@@ -511,5 +511,38 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
     opacity: 1;
   }
 }
+/* Modal Animation */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .3s ease;
+}
+
+.modal.show-modal {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 600px;
+  width: 90%;
+  transform: scale(0.8);
+  transition: transform .3s ease;
+}
+
+.modal.show-modal .modal-content {
+  transform: scale(1);
+}
+
 
 
