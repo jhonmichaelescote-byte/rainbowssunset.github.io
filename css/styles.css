@@ -55,30 +55,6 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
   line-height: 1.5;
   margin-bottom: 20px;
 }
-.watch-btn {
-  background-color: #FF0000; /* YouTube red */
-  color: white;
-  border: none;
-  padding: 12px 25px;
-  font-size: 1.1rem;
-  font-weight: bold;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.watch-btn:hover {
-  background-color: #cc0000; /* darker red */
-  transform: scale(1.05);
-}
-
-.watch-btn:active {
-  transform: scale(0.95);
-}
-
 
 .hero-btns .btn {
   display: inline-block;
@@ -450,4 +426,5 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
   .hero-poster, .about-poster { width: 160px; }
   .scenes-row img { height: 100px; width: 32%; }
 }
+
 
