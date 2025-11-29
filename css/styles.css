@@ -426,5 +426,23 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
   .hero-poster, .about-poster { width: 160px; }
   .scenes-row img { height: 100px; width: 32%; }
 }
+/* ---- YouTube Watch Button ---- */
+.watch-btn {
+  background: #e50914;       /* YouTube Red */
+  color: #fff;
+  padding: 12px 26px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.3s ease;
+}
+
+.watch-btn:hover {
+  background: #f6121d;       /* Lighter red on hover */
+  transform: scale(1.05);
+}
+
 
 
