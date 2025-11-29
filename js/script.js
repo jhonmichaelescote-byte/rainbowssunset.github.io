@@ -61,45 +61,62 @@
     });
   });
 
-  // ---------------------
-  // TERMS & PRIVACY MODALS
-  // ---------------------
+ /* ------------------------------
+    MOBILE MENU
+------------------------------ */
+const menuToggle = document.getElementById("menuToggle");
+const navMenu = document.getElementById("navMenu");
 
-  const openTerms = document.getElementById("openTerms");
-  const openPrivacy = document.getElementById("openPrivacy");
-  const termsModal = document.getElementById("termsModal");
-  const privacyModal = document.getElementById("privacyModal");
-  const closeTerms = document.getElementById("closeTerms");
-  const closePrivacy = document.getElementById("closePrivacy");
+menuToggle.addEventListener("click", () => {
+  navMenu.classList.toggle("show");
+});
 
-  // OPEN
-  openTerms?.addEventListener("click", () => {
-    termsModal.style.display = "flex";
-    document.body.style.overflow = "hidden";
-  });
+/* ------------------------------
+    MODALS (Terms & Privacy)
+------------------------------ */
 
-  openPrivacy?.addEventListener("click", () => {
-    privacyModal.style.display = "flex";
-    document.body.style.overflow = "hidden";
-  });
+// Links in Footer
+const termsLink = document.getElementById("termsLink");
+const privacyLink = document.getElementById("privacyLink");
 
-  // CLOSE
-  closeTerms?.addEventListener("click", () => {
-    termsModal.style.display = "none";
-    document.body.style.overflow = "";
-  });
+// Modal Boxes
+const termsModal = document.getElementById("termsModal");
+const privacyModal = document.getElementById("privacyModal");
 
-  closePrivacy?.addEventListener("click", () => {
-    privacyModal.style.display = "none";
-    document.body.style.overflow = "";
-  });
+// Close Buttons
+const closeTerms = document.getElementById("closeTerms");
+const closePrivacy = document.getElementById("closePrivacy");
 
-  // CLICK OUTSIDE
-  window.addEventListener("click", e => {
-    if (e.target.classList.contains("modal")) {
-      e.target.style.display = "none";
-      document.body.style.overflow = "";
-    }
-  });
+/* ---- OPEN MODALS ---- */
+termsLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  termsModal.classList.add("show-modal");
+});
+
+privacyLink.addEventListener("click", (e) => {
+  e.preventDefault();
+  privacyModal.classList.add("show-modal");
+});
+
+/* ---- CLOSE MODALS ---- */
+closeTerms.addEventListener("click", () => {
+  termsModal.classList.remove("show-modal");
+});
+
+closePrivacy.addEventListener("click", () => {
+  privacyModal.classList.remove("show-modal");
+});
+
+/* ---- CLOSE WHEN CLICKING OUTSIDE ---- */
+window.addEventListener("click", (event) => {
+  if (event.target === termsModal) {
+    termsModal.classList.remove("show-modal");
+  }
+  if (event.target === privacyModal) {
+    privacyModal.classList.remove("show-modal");
+  }
+});
+
 
 })();
+
