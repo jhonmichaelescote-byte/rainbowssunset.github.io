@@ -450,6 +450,43 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
 .fade-in { opacity: 0; animation: fadeIn 0.8s forwards; }
 @keyframes fadeIn { to { opacity: 1; } }
 
+/* ---------- Modal Animation (Terms & Privacy) ---------- */
+.modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.modal.show-modal {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.modal-content {
+  background: #1c1c1c;
+  color: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  max-width: 600px;
+  width: 90%;
+  transform: translateY(40px);
+  transition: transform 0.35s ease, opacity 0.35s ease;
+  opacity: 0;
+}
+
+.modal.show-modal .modal-content {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+
 /* ---------- Responsive ---------- */
 @media (max-width:900px){
   .hero-layout, .about-layout { flex-direction: column; align-items: center; }
@@ -463,3 +500,4 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
   .hero-poster, .about-poster { width: 160px; }
   .scenes-row img { height: 100px; width: 32%; }
 }
+
