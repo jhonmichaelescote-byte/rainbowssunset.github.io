@@ -91,6 +91,35 @@ window.onclick = function(event) {
   if (event.target == privacyModal) privacyModal.style.display = 'none';
 };
 
+// Get elements
+const termsModal = document.getElementById("termsModal");
+const privacyModal = document.getElementById("privacyModal");
+const closeTerms = document.getElementById("closeTerms");
+const closePrivacy = document.getElementById("closePrivacy");
+
+// OPEN MODALS
+document.getElementById("openTerms").addEventListener("click", () => {
+  termsModal.style.display = "flex";
+});
+document.getElementById("openPrivacy").addEventListener("click", () => {
+  privacyModal.style.display = "flex";
+});
+
+// CLOSE BUTTONS
+closeTerms.addEventListener("click", () => {
+  termsModal.style.display = "none";
+});
+closePrivacy.addEventListener("click", () => {
+  privacyModal.style.display = "none";
+});
+
+// CLOSE WHEN CLICKING OUTSIDE MODAL
+window.addEventListener("click", (e) => {
+  if (e.target.classList.contains("modal")) {
+    e.target.style.display = "none";
+  }
+});
 
 })();
+
 
