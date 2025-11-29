@@ -64,11 +64,15 @@ document.querySelectorAll(".read-more-btn").forEach(btn => {
   btn.addEventListener("click", () => {
     const text = btn.previousElementSibling;
 
-    text.classList.toggle("expanded");
-
-    btn.textContent = text.classList.contains("expanded")
-      ? "Read Less"
-      : "Read More";
+    if (text.classList.contains("expanded")) {
+      text.style.maxHeight = "90px";  // collapsed height
+      text.classList.remove("expanded");
+      btn.textContent = "Read More";
+    } else {
+      text.style.maxHeight = text.scrollHeight + "px"; // dynamic expanded height
+      text.classList.add("expanded");
+      btn.textContent = "Read Less";
+    }
   });
 });
 
@@ -89,3 +93,4 @@ window.onclick = function(event) {
 
 
 })();
+
