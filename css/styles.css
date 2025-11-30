@@ -455,7 +455,7 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
 }
 
 .modal-content {
-  background-color: #ffffff;
+  background-color: #3f3d3d;
   margin: 10% auto;
   padding: 20px;
   border-radius: 8px;
@@ -568,5 +568,6 @@ body, html { height: 100%; font-family: 'Inter', sans-serif; background: var(--b
 
 .viewer-arrow.left { left: 10px; }
 .viewer-arrow.right { right: 10px; }
+
 
 
